@@ -4,13 +4,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static com.wakaleo.gameoflife.domain.Cell.*;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.wakaleo.gameoflife.domain.Cell;
 import com.wakaleo.gameoflife.domain.GridWriter;
 
 public class WhenYouPrintAGrid {
+
+	private final String NEW_LINE = System.getProperty("line.separator");
 
     @Test
     public void shouldBeAbleToReadAGridOfCellsFromAString() {
@@ -20,9 +21,9 @@ public class WhenYouPrintAGrid {
                 {DEAD_CELL, DEAD_CELL, DEAD_CELL} 
         };
         
-        String expectedPrintedGrid = "...\n" + 
-                                     "...\n" +
-                                     "...\n";
+        String expectedPrintedGrid = "..." + NEW_LINE + 
+                                     "..." + NEW_LINE +
+                                     "..." + NEW_LINE + "";
         
         GridWriter gridWriter = new GridWriter();
         String printedGrid = gridWriter.convertToString(gridContents);
@@ -37,9 +38,9 @@ public class WhenYouPrintAGrid {
                 {DEAD_CELL, LIVE_CELL, DEAD_CELL} 
         };
         
-        String expectedPrintedGrid = "*..\n" + 
-                                     ".*.\n" +
-                                     ".*.\n";
+        String expectedPrintedGrid = "*.." + NEW_LINE + 
+                                     ".*." + NEW_LINE +
+                                     ".*." + NEW_LINE + "";
         
         GridWriter gridWriter = new GridWriter();
         String printedGrid = gridWriter.convertToString(gridContents);
@@ -63,18 +64,18 @@ public class WhenYouPrintAGrid {
                 {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
         };
         
-        String expectedPrintedGrid = "*..*..*..*..\n" + 
-                                     ".*..*..*..*.\n" +
-                                     ".*..*..*..*.\n" + 
-                                     "*..*..*..*..\n" + 
-                                     ".*..*..*..*.\n" +
-                                     ".*..*..*..*.\n" +
-                                     "*..*..*..*..\n" + 
-                                     ".*..*..*..*.\n" +
-                                     ".*..*..*..*.\n" +
-                                     "*..*..*..*..\n" + 
-                                     ".*..*..*..*.\n" +
-                                     ".*..*..*..*.\n";
+        String expectedPrintedGrid = "*..*..*..*.." + NEW_LINE + 
+                                     ".*..*..*..*." + NEW_LINE +
+                                     ".*..*..*..*." + NEW_LINE + 
+                                     "*..*..*..*.." + NEW_LINE + 
+                                     ".*..*..*..*." + NEW_LINE +
+                                     ".*..*..*..*." + NEW_LINE +
+                                     "*..*..*..*.." + NEW_LINE + 
+                                     ".*..*..*..*." + NEW_LINE +
+                                     ".*..*..*..*." + NEW_LINE +
+                                     "*..*..*..*.." + NEW_LINE + 
+                                     ".*..*..*..*." + NEW_LINE +
+                                     ".*..*..*..*." + NEW_LINE + "";
         
         GridWriter gridWriter = new GridWriter();
         String printedGrid = gridWriter.convertToString(gridContents);
